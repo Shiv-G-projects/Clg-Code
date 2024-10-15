@@ -1,0 +1,1 @@
+These are the code files from my CSC 221 class. We went over the structure of a computer and how code works in relation to hardware.
