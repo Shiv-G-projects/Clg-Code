@@ -1,0 +1,73 @@
+Code:
+
+import java.util.ArrayList;
+
+//Dog Class
+class Dog implements Comparable<Dog>{
+    int points;
+    String breed;
+
+    public Dog(int points, String breed) {
+        this.points = points;
+        this.breed = breed;
+    }
+    
+    @Override
+    public int compareTo(Dog dog) {
+    int breedComparison = this.breed.compareTo(dog.breed);
+        if (breedComparison != 0) {
+            return breedComparison;
+        }
+        else;
+        return Integer.compare(this.points, dog.points);
+    }
+    
+    //Printing method
+    public void printDog() {
+        System.out.println("Breed: " + breed + ", Points: " + points);
+    }
+    }
+    
+    public class dogDriver {
+        public static void main(String[] args) {
+
+            // Constructors
+            ArrayList<Dog> dogsList = new ArrayList<>(4);
+            dogsList.add(new Dog(12, "Terrier"));
+            dogsList.add(new Dog(18, "Terrier"));
+            dogsList.add(new Dog(9, "Pug"));
+            dogsList.add(new Dog(6, "Terrier"));
+
+        System.out.println("Original array:");
+        for (Dog dog : dogsList) {
+            dog.printDog();
+        }
+
+        System.out.println("\n");
+        dogsList.sort(null);
+        System.out.println("Sorted array:");
+
+        for (Dog dog : dogsList) {
+            dog.printDog();
+        }
+    }
+
+}
+
+Output:
+
+Original array:
+Breed: Terrier, Points: 12
+Breed: Terrier, Points: 18
+Breed: Pug, Points: 9
+Breed: Terrier, Points: 6
+
+
+Sorted array:
+Breed: Pug, Points: 9
+Breed: Terrier, Points: 6
+Breed: Terrier, Points: 12
+Breed: Terrier, Points: 18
+
+
+P.S: Professor, I know that it's also possible to sort the arraylist using the "Collections.sort" method, but I chose the "arraylist.sort" method, as it requires one less kit import (less reading, efficiency etc)
